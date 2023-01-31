@@ -1,0 +1,40 @@
+.sized-max {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.sized-container {
+  width: 100%;
+  margin: 0 auto;
+  @include alignElements(flex, row, nowrap, flex-start, flex-start, 0);
+}
+
+.icon-container{
+  @include alignElements(flex, row, nowrap, flex-start, center, 1rem);
+}
+
+.icon-img {
+  width: 24px !important;
+  height: 24px !important;
+}
+
+.icon-img-sm{
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.clearfix{
+	&:after{
+		content: "";
+		display: table;
+		clear: both;
+		height: 0;
+		visibility: hidden;
+	}
+}

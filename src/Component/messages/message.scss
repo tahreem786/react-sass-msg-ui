@@ -1,0 +1,259 @@
+/* =========================VARIABLES CSS START========== */
+@import "./variable";
+/* =====================CSS VARIABLE END============ */
+
+@import "../../assets/sass/reset";
+@import "../../assets/sass/mixin";
+@import "./extend";
+
+.msg-container {
+  height: 100vh;
+  background-color: $white-color;
+  @extend .sized-container;
+  @extend .sized-max;
+
+  .header {
+    @include alignElements(flex, row, nowrap, space-between, center, 1rem);
+    height: 69px;
+    width: 100%;
+    background-color: $white-color;
+    box-shadow: 0px 1px 5px $white-color-shadow;
+    padding: 6px 1rem;
+  }
+  .header-profile {
+    padding: 0 1.5rem;
+    @include alignElements(flex, row, nowrap, flex-start, center, 0.8rem);
+  }
+
+  // font classes
+  .heading {
+    text-transform: capitalize;
+    @include fontstyled(normal, 800, 20px, 22px, $dark-color);
+    letter-spacing: 0.75px;
+  }
+  .title {
+    @extend .heading;
+    @include fontstyled(normal, 500, 18px, 22px, $dark-color);
+  }
+  .sub-title {
+    text-transform: capitalize;
+    @include fontstyled(normal, 400, 16px, 20px, $light-plus-color);
+    letter-spacing: 0.75px;
+  }
+
+  .chat-header {
+    @include alignElements(flex, row, wrap, space-between, center, 8px);
+    padding: 1rem 1rem 0;
+    button {
+      @include fontstyled(normal, 600, 14px, 20px, $light-plus-color);
+      @include gradient("background");
+      padding: 0.7rem;
+      border-radius: 50px;
+      letter-spacing: 0.25px;
+    }
+    .dropdown {
+      border-radius: 50px;
+      background-color: $light-color !important;
+      padding: 1px 4px;
+      img {
+        width: 14px !important;
+        height: 14px !important;
+      }
+    }
+  }
+
+  .search-bar {
+    @include alignElements(
+      flex,
+      row,
+      nowrap,
+      flex-start,
+      space-between,
+      0.8rem
+    );
+    margin: 1rem;
+    padding: 0.7rem 1rem;
+    background-color: $white-color;
+    border-radius: 50px;
+    input {
+      flex: 1;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .left-side {
+    height: 100vh;
+    width: 25%;
+    background-color: $white-color-sub;
+    .chat-tab {
+      @include alignElements(flex, row, nowrap, space-between, center, 0);
+      border-radius: 50px;
+      background-color: #8f8caa;
+      margin: 1rem 2rem 0;
+      button {
+        padding: 0.7rem 1rem;
+        border: none;
+        background-color: transparent;
+        border-radius: 50px;
+        color: $white-color-sub;
+        &.active {
+          @include gradient("background");
+          padding: 0.7rem 2rem;
+          flex: 1;
+        }
+      }
+    }
+    .badge {
+      @include alignElements(flex, row, wrap, flex-start, center, 8px);
+      padding: 0.5rem 1rem;
+      button {
+        @include fontstyled(normal, 600, 14px, 20px, $light-plus-color);
+        letter-spacing: 0.25px;
+        padding: 6px 1.1rem;
+        background: $white-color;
+        border-radius: 1000px;
+        border: 1px solid $normal-color;
+        &.active {
+          @include gradient("background");
+        }
+      }
+    }
+    .card-container {
+      @include alignElements(
+        flex,
+        column,
+        nowrap,
+        flex-start,
+        space-between,
+        0.8rem
+      );
+      width: 100%;
+      padding: 1rem;
+      .header-profile {
+        @extend .header-profile;
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: $white-color-sub;
+        .text {
+          flex: 1;
+        }
+        .msg-count {
+          text-align: center;
+          .number {
+            @include fontstyled(normal, 400, 10px, 10px, $white-color);
+            @include gradient("background");
+            padding: 3px 6px;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  .center-side {
+    height: 100vh;
+    width: 50%;
+    .conversation {
+      width: 100%;
+      height: calc(100% - 150px);
+      padding: 0 30px;
+      .msg-title {
+        text-transform: capitalize;
+        @include fontstyled(normal, 400, 14px, 18px, $light-plus-color);
+        letter-spacing: 0.75px;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      .messages {
+        @extend .clearfix;
+        margin-bottom: 10px;
+        .message {
+          @include fontstyled(normal, 400, 14px, 20px, $dark-color);
+          display: inline-block;
+          margin-bottom: 2px;
+          clear: both;
+          padding: 10px 20px;
+          line-height: 1.4;
+          max-width: 50%;
+        }
+        &--received {
+          .message {
+            float: left;
+            background-color: $light-color;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            &:first-child {
+              border-top-left-radius: 80px;
+            }
+            &:last-child {
+              border-bottom-left-radius: 80px;
+            }
+            &:only-child {
+              border-radius: 50px;
+            }
+          }
+        }
+        &--sent {
+          .message {
+            @include gradient("background");
+            float: right;
+            color: $white-color;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            &:first-child {
+              border-top-right-radius: 80px;
+            }
+            &:last-child {
+              border-bottom-right-radius: 80px;
+            }
+            &:only-child {
+              border-radius: 50px;
+            }
+          }
+        }
+      }
+    }
+    .text-bar {
+      @include alignElements(flex, row, nowrap, center, center, 0);
+      height: 80px;
+      border-top: 1px solid $light-color;
+      padding: 1px 2rem;
+
+      &__field {
+        @include alignElements(
+          flex,
+          row,
+          nowrap,
+          space-between,
+          center,
+          0.5rem
+        );
+        width: 100%;
+        padding: 5px 1rem;
+        border-radius: 10px;
+        background-color: $light-color;
+
+        input {
+          flex: 1;
+          padding: 10px;
+          border: none;
+          outline: none;
+          background-color: transparent;
+        }
+        button {
+          @include gradient("background");
+          border-radius: 50px;
+          padding: 5px;
+        }
+      }
+    }
+  }
+
+  .right-side {
+    height: 100vh;
+    width: 25%;
+    background-color: $white-color-sub;
+  }
+}

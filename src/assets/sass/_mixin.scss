@@ -1,0 +1,58 @@
+@mixin alignElements(
+  $displayValue,
+  $directionvalue,
+  $wrapValue,
+  $justifyValue,
+  $alignValue,
+  $gapValue
+) {
+  display: $displayValue;
+  flex-direction: $directionvalue;
+  flex-wrap: $wrapValue;
+  justify-content: $justifyValue;
+  align-items: $alignValue;
+  gap: $gapValue;
+}
+
+@mixin fontstyled(
+  $fontStyleValue,
+  $fontWeightValue,
+  $fontSizeValue,
+  $lineHeightValue,
+  $fontColor
+) {
+  font-family: "Poppins", sans-serif;
+  font-style: $fontStyleValue;
+  font-weight: $fontWeightValue;
+  font-size: $fontSizeValue;
+  line-height: $lineHeightValue;
+  color: $fontColor;
+}
+
+@mixin gradient($attribute) {
+  #{$attribute}: -webkit-linear-gradient(
+    to bottom right,
+    $second-color-for-gradient,
+    $red
+  );
+  #{$attribute}: -moz-linear-gradient(
+    to bottom right,
+    $second-color-for-gradient,
+    $red
+  );
+  #{$attribute}: -ms-linear-gradient(
+    to bottom right,
+    $second-color-for-gradient,
+    $red
+  );
+  #{$attribute}: -o-linear-gradient(
+    to bottom right,
+    $second-color-for-gradient,
+    $red
+  );
+  #{$attribute}: linear-gradient(
+    to bottom right,
+    $second-color-for-gradient,
+    $red
+  );
+}
